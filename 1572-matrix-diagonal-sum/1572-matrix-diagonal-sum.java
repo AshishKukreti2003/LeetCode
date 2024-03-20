@@ -8,9 +8,7 @@ class Solution {
         if(n%2==0){
             return sum;
         }
-        else{
-            return sum-=mat[n/2][n/2];
-        }
+        return sum-=mat[n/2][n/2];
        
     }
 }
