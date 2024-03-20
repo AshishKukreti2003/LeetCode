@@ -40,6 +40,6 @@ class Solution {
                 e = mid;
             }
         }
-        return 0; // If no rotation, pivot is 0
+        return s; // If no rotation, pivot is 0
     }   
 }
