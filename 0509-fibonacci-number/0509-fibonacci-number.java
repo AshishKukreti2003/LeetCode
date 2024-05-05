@@ -1,15 +1,15 @@
 class Solution {
     public int fib(int n) {
-        return fibo(n);
-    }
-    
-    static int fibo(int n){
-        if(n == 0){
-            return 0; 
+        if(n==0){
+            return 0;
         }
-        if(n <= 2){
-            return 1;
+        int first = 0;
+        int last = 1;
+        for(int i=1;i<n;i++){
+            int sum = first + last;
+            first = last;
+            last = sum;
         }
-        return fibo(n-1)+fibo(n-2);
+        return last;
     }
 }
