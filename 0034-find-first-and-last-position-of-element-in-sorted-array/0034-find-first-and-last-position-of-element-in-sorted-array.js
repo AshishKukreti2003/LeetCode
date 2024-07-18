@@ -4,30 +4,27 @@
  * @return {number[]}
  */
 var searchRange = function(nums, target) {
-    let start = 0, end = nums.length-1;
     let arr = [-1,-1];
-    while(start<=end){
-        let mid = Math.floor(start+(end-start)/2);
-        if(nums[mid] == target){
-            arr[0] = mid;
-            end = mid-1;
-        }else if(nums[mid] > target){
-            end = mid-1;
-        }else{
-            start = mid+1;
-        }
-    }
-    start = 0, end = nums.length-1;
-    while(start<=end){
-        let mid = Math.floor(start+(end-start)/2);
-        if(nums[mid] == target){
-            arr[1] = mid;
-            start = mid+1;
-        }else if(nums[mid] > target){
-            end = mid-1;
-        }else{
-            start = mid+1;
-        }
-    }
+    binarySearch(nums,target,0,nums.length-1,arr,true);
+    binarySearch(nums,target,0,nums.length-1,arr,false);
     return arr;
+    
+    
+    function binarySearch(nums,target,s,e,arr,searchLeft){
+        if(s>e) return;
+        let mid = Math.floor(s+(e-s)/2);
+        if(nums[mid] == target){
+            if(searchLeft){
+                arr[0] = mid;
+                binarySearch(nums,target,s,mid-1,arr,searchLeft);
+            }else{
+                arr[1] = mid;
+                binarySearch(nums,target,mid+1,e,arr,searchLeft);
+            }
+        }else if(nums[mid] > target){
+            binarySearch(nums,target,s,mid-1,arr,searchLeft);
+        }else{
+            binarySearch(nums,target,mid+1,e,arr,searchLeft);
+        }
+    }
 };
