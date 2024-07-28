@@ -36,13 +36,17 @@ class Solution {
     }
     
     public ListNode getMid(ListNode head){
+        ListNode f = head;
+        ListNode s = head;
         ListNode midPrev = null;
-        while(head!=null && head.next!=null){
-            midPrev = (midPrev == null) ? head : midPrev.next;
-            head = head.next.next;
+        while(f !=null && f.next!=null){
+            midPrev = s;
+            f = f.next.next;
+            s = s.next;
         }
-        ListNode mid = midPrev.next;
-        midPrev.next = null;
-        return mid;
+        if(midPrev!=null){
+            midPrev.next = null;
+        }
+        return s;
     }
 }
