@@ -3,11 +3,13 @@
  * @return {number}
  */
 var fib = function(n) {
-    return fibo(n);
-    
-    function fibo(n){
-        if(n == 0) return 0;
-        if(n<=2) return 1;
-        return fibo(n-1)+fibo(n-2);
+    if(n == 0) return 0;
+    let first = 0;
+    let last = 1;
+    for(let i=1;i<n;i++){
+        let sum = first+last;
+        first = last;
+        last = sum;
     }
+    return last;
 };
