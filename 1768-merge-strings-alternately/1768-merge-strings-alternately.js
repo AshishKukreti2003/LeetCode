@@ -5,20 +5,15 @@
  */
 var mergeAlternately = function(word1, word2) {
     let str = "";
-    let i = 0,j=0;
-    while(i<word1.length && j<word2.length){
-        str+=word1.charAt(i);
-        str+=word2.charAt(j);
+    let i = 0;
+    while(i<word1.length || i<word2.length){
+        if(i<word1.length){
+            str+=word1.charAt(i);
+        }
+        if(i<word2.length){
+            str+=word2.charAt(i);
+        }
         i++;
-        j++;
-    }
-    while(i<word1.length){
-        str+=word1.charAt(i);
-        i++;
-    }
-    while(j<word2.length){
-        str+=word2.charAt(j);
-        j++;
     }
     return str;
 };
