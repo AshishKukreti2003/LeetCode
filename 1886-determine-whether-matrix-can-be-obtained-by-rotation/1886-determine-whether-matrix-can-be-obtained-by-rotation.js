@@ -24,11 +24,7 @@ var findRotation = function(mat, target) {
             }
         }
         for(let i=0;i<n;i++){
-            for(let j=0;j<n/2;j++){
-                let temp = mat[i][j];
-                mat[i][j] = mat[i][n-1-j];
-                mat[i][n-1-j] = temp;
-            }
+            mat[i].reverse();
         }
     }
     
