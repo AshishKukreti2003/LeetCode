@@ -6,6 +6,6 @@ class Solution {
             else oddCount++;
         }
         
-        return (oddCount <= evenCount) ? oddCount : evenCount;
+        return Math.min(evenCount, oddCount);
     }
 }
