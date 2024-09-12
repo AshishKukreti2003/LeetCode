@@ -8,12 +8,12 @@ class Solution {
                 for(char c: allowed.toCharArray()){
                     if(ch == c){
                         found = true;
-                        // break;
+                        break;
                     }
                 }
                 if(!found){
                     istrue = false;
-                    // break;
+                    break;
                 }
             }
             if(istrue){
