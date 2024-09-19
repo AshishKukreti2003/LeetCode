@@ -6,14 +6,16 @@
 var rotate = function(nums, k) {
     let n = nums.length;
     k = k%n;
-    let arr = [];
-    for(let i=n-k;i<n;i++){
-        arr.push(nums[i]);
+    function reverse(start, end){
+        while(start<end){
+            let temp = nums[start];
+            nums[start] = nums[end];
+            nums[end] = temp;
+            start++;
+            end--;
+        }
     }
-    for(let i=0;i<n-k;i++){
-        arr.push(nums[i]);
-    }
-    for(let i=0;i<n;i++){
-        nums[i] = arr[i];
-    }
+    reverse(0,n-1);
+    reverse(0,k-1);
+    reverse(k,n-1);
 };
